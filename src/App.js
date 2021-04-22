@@ -1,49 +1,44 @@
 /**
- * Sample React Native App
- * https://github.com/facebook/react-native
+ * React Native를 이용한 android용 apple의 Calculator 미러앱
+ * https://github.com/like-apple/iCalculator
  *
  * @format
- * @flow strict-local
+ * @flow
  */
 import React from 'react';
-import {SafeAreaView, View} from 'react-native';
+import {SafeAreaView, StatusBar} from 'react-native';
 import Styled from 'styled-components/native';
-
-import {StyleSheet, Text, StatusBar} from 'react-native';
 
 import Row from '~/Components/Row';
 import Button from '~/Components/Button';
-import calculator, {initialState} from '~/Util/calculator';
+import Calculator, {initialState} from '~/Util/Calculator';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#202020',
-    justifyContent: 'flex-end',
-  },
-  value: {
-    color: '#fff',
-    fontSize: 40,
-    textAlign: 'right',
-    marginRight: 20,
-    marginBottom: 10,
-  },
-});
+const Container = Styled.View`
+  flex: 1;
+  background-color: #202020;
+  justify-content: flex-end;
+`;
+
+const Value = Styled.Text`
+  color: #fff;
+  font-size: 40;
+  text-align: right;
+  margin-right: 20;
+  margin-bottom: 10;
+`;
 
 const App = () => {
   state = initialState;
 
   handleTap = (type, value) => {
-    this.setState(state => calculator(type, value, state));
+    this.setState(state => Calculator(type, value, state));
   };
 
   return (
-    <View style={styles.container}>
+    <Container>
       <StatusBar barStyle="light-content" />
       <SafeAreaView>
-        <Text style={styles.value}>
-          {parseFloat(this.state.currentValue).toLocaleString()}
-        </Text>
+        <Value>{parseFloat(this.state.currentValue).toLocaleString()}</Value>
         <Row>
           <Button
             text="C"
@@ -114,7 +109,7 @@ const App = () => {
           />
         </Row>
       </SafeAreaView>
-    </View>
+    </Container>
   );
 };
 
