@@ -2,12 +2,12 @@ import React from 'react';
 import {TouchableOpacity, StyleSheet, Text, Dimensions} from 'react-native';
 
 const screen = Dimensions.get('window');
-const buttonWidth = screen.width / 4;
+const buttonWidth = screen.width / 4 - 10;
 
 const styles = StyleSheet.create({
   text: {
     color: '#fff',
-    fontSize: 25,
+    fontSize: 35,
   },
   textSecondary: {
     color: '#060606',
@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     margin: 5,
   },
   buttonDouble: {
-    width: screen.width / 2 - 10,
+    width: screen.width / 2 - 30,
     flex: 0,
     alignItems: 'flex-start',
     paddingLeft: 40,
